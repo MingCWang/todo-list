@@ -12,7 +12,7 @@ export default function AddToDo({ToDoNumber, SetToDo}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch('http://localhost:8000/Todos', {
-            method: 'POST',
+            method: 'POST',                                     //POST operation that posts the added to do item to the server
             headers: { "Content-Type" : "application/json" },
             body: JSON.stringify({content})
         }).then(() => {
@@ -21,7 +21,7 @@ export default function AddToDo({ToDoNumber, SetToDo}) {
                 return res.json()
               })
               .then(data => {
-                SetToDo(data)
+                SetToDo(data)                                   //After posting the data, immediatley get the updated data so it can be shown 
               })
         })
     }

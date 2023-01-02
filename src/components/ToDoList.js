@@ -10,7 +10,7 @@ export default function ToDoList({ToDo, handleComplete}){
 
     return (
         <div className="todo-list">
-            {ToDo.map((ToDo) => (
+            {ToDo.map((ToDo) => (                           //The map function iterates through all the to do items(object) and convert it to JSX 
                 <div className='todo' key = {ToDo.id}>
                     <Star ToDo={ToDo}/>
                     <p>{ToDo.content}</p>

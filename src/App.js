@@ -12,29 +12,29 @@ export default function App() {
   const [ToDo, SetToDo] = useState([])
   const [completedItems, setCompletedItems] = useState(0)
 
-  function handleComplete(id){
+  function handleComplete(id){            
     setCompletedItems(prevCompletedItems => prevCompletedItems + 1)
     fetch('http://localhost:8000/Todos/' + id, {
-      method: 'DELETE'
+      method: 'DELETE'                    //DELETE operation
     })
   }
 
-  useEffect(() => {
+  useEffect(() => {                       // GET operation the grabs the data from the server
     fetch('http://localhost:8000/Todos')
       .then(res => {
         return res.json()
       })
       .then(data => {
-        SetToDo(data)
+        SetToDo(data)                     //Updates the state of the ToDo items
       })
-  }, [completedItems])
+  }, [completedItems])                    //This dependency enables the useEffect to render only when an item is completed 
 
 
   return (
     <div className='App'>
       <h1 className='title'>To do List</h1>
-      <AddToDo ToDoNumber = {completedItems} SetToDo = {SetToDo}/>
-      <ToDoList ToDo = {ToDo}  handleComplete={handleComplete}/>
+      <AddToDo ToDoNumber = {completedItems} SetToDo = {SetToDo}/>          {/*A react component that allows the user to enter to do items */}
+      <ToDoList ToDo = {ToDo}  handleComplete={handleComplete}/>            {/*A react component that shows the list of to do items*/}
     </div>
   );
 }
