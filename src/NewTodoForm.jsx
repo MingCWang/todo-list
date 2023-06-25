@@ -11,6 +11,8 @@ export default function NewTodoForm({ addTodos }) {
 
 	function handelSubmit(e) {
 		e.preventDefault();
+
+		if (item === "") return;
 		addTodos(item);
 		setNewItem("");
 	}
