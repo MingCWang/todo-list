@@ -5,4 +5,4 @@ A quick todo app built with react to practice how to use state, props, hooks, an
 
 Data are all stored in local storage.
 
-This project is also used to practice how to use docker.
+This project is also used to practice docker containerization.
